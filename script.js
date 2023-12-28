@@ -1,29 +1,7 @@
-const rockBtn = document.querySelector("#rockBtn");
-const paperBtn = document.querySelector("#paperBtn");
-const scissorsBtn = document.querySelector("#scissorsBtn");
-const resultContainer = document.querySelector('#resultContainer');
-const playerScoreContainer = document.querySelector('#playerScoreContainer');
-const computerScoreContainer = document.querySelector('#computerScoreContainer');
+// GAME
 
-
-rockBtn.addEventListener('click', () => {
-  playerSelection = 'Rock';
-  computerSelection = getComputerChoice();
-  return playRound(playerSelection, computerSelection);
-});
-
-paperBtn.addEventListener('click', () => {
-  playerSelection = 'Paper';
-  computerSelection = getComputerChoice();
-  return playRound(playerSelection, computerSelection);
-});
-
-scissorsBtn.addEventListener('click', () => {
-  playerSelection = 'Scissors';
-  computerSelection = getComputerChoice();
-  return playRound(playerSelection, computerSelection);
-});
-
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   let randomNum = Math.floor(Math.random() * 3) + 1;
@@ -72,5 +50,33 @@ function showResults(resultText) {
     alert("Game over! You lose!");
   }
 }
-let playerScore = 0;
-let computerScore = 0;
+
+// UI
+
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorsBtn = document.querySelector("#scissorsBtn");
+const resultContainer = document.querySelector('#resultContainer');
+const playerScoreContainer = document.querySelector('#playerScoreContainer');
+const computerScoreContainer = document.querySelector('#computerScoreContainer');
+
+
+rockBtn.addEventListener('click', () => {
+  playerSelection = 'Rock';
+  computerSelection = getComputerChoice();
+  return playRound(playerSelection, computerSelection);
+});
+
+paperBtn.addEventListener('click', () => {
+  playerSelection = 'Paper';
+  computerSelection = getComputerChoice();
+  return playRound(playerSelection, computerSelection);
+});
+
+scissorsBtn.addEventListener('click', () => {
+  playerSelection = 'Scissors';
+  computerSelection = getComputerChoice();
+  return playRound(playerSelection, computerSelection);
+});
+
+
