@@ -9,19 +9,19 @@ const computerScoreContainer = document.querySelector('#computerScoreContainer')
 rockBtn.addEventListener('click', () => {
   playerSelection = 'Rock';
   computerSelection = getComputerChoice();
-  playRound(playerSelection, computerSelection);
+  return playRound(playerSelection, computerSelection);
 });
 
 paperBtn.addEventListener('click', () => {
   playerSelection = 'Paper';
   computerSelection = getComputerChoice();
-  playRound(playerSelection, computerSelection);
+  return playRound(playerSelection, computerSelection);
 });
 
 scissorsBtn.addEventListener('click', () => {
   playerSelection = 'Scissors';
   computerSelection = getComputerChoice();
-  playRound(playerSelection, computerSelection);
+  return playRound(playerSelection, computerSelection);
 });
 
 
@@ -43,7 +43,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     let resultText = "It's a Tie!";
-    showResults(resultText);
+    return showResults(resultText);
   }
   else if (
       (playerSelection === "Rock" && computerSelection === "Scissors") ||
@@ -52,12 +52,12 @@ function playRound(playerSelection, computerSelection) {
     ) {
         playerScore ++;
         let resultText = "You win! " + playerSelection + " beats " + computerSelection
-        showResults(resultText);
+        return showResults(resultText);
     }
   else {
     computerScore ++;
     let resultText = "You lose! " + computerSelection + " beats " + playerSelection
-    showResults(resultText);
+    return showResults(resultText);
   }
 }
 
