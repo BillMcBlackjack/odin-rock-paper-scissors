@@ -1,6 +1,7 @@
 const rockBtn = document.querySelector("#rockBtn");
 const paperBtn = document.querySelector("#paperBtn");
 const scissorsBtn = document.querySelector("#scissorsBtn");
+const resultContainer = document.querySelector('#resultContainer');
 
 rockBtn.addEventListener('click', () => {
   playerSelection = 'Rock';
@@ -37,9 +38,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  console.log(computerSelection);
   if (playerSelection === computerSelection) {
-    return alert("It's a tie!");
+    resultContainer.textContent = "It's a tie!";
   }
   else if (
       (playerSelection === "Rock" && computerSelection === "Scissors") ||
@@ -47,11 +47,12 @@ function playRound(playerSelection, computerSelection) {
       (playerSelection === "Scissors" && computerSelection === "Paper")
     ) {
         playerScore ++;
-        return alert("You win! " + playerSelection + " beats " + computerSelection);
+        resultContainer.textContent = "You win! " + playerSelection + " beats " + computerSelection;
+
     }
   else {
     computerScore ++;
-    return alert("You lose! " + computerSelection + " beats " + playerSelection);
+    resultContainer.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
   }
 }
 
