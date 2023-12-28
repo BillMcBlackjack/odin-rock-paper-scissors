@@ -2,6 +2,9 @@ const rockBtn = document.querySelector("#rockBtn");
 const paperBtn = document.querySelector("#paperBtn");
 const scissorsBtn = document.querySelector("#scissorsBtn");
 const resultContainer = document.querySelector('#resultContainer');
+const playerScoreContainer = document.querySelector('#playerScoreContainer');
+const computerScoreContainer = document.querySelector('#computerScoreContainer');
+
 
 rockBtn.addEventListener('click', () => {
   playerSelection = 'Rock';
@@ -39,7 +42,8 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    resultContainer.textContent = "It's a tie!";
+    let resultText = "It's a Tie!";
+    showResults(resultText);
   }
   else if (
       (playerSelection === "Rock" && computerSelection === "Scissors") ||
@@ -47,34 +51,26 @@ function playRound(playerSelection, computerSelection) {
       (playerSelection === "Scissors" && computerSelection === "Paper")
     ) {
         playerScore ++;
-        resultContainer.textContent = "You win! " + playerSelection + " beats " + computerSelection;
-
+        let resultText = "You win! " + playerSelection + " beats " + computerSelection
+        showResults(resultText);
     }
   else {
     computerScore ++;
-    resultContainer.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
+    let resultText = "You lose! " + computerSelection + " beats " + playerSelection
+    showResults(resultText);
   }
 }
 
-// function game() {
-//   while(playerScore <= 3 && computerScore <= 3) {
-
-//     if (playerScore === 3) {
-//       return alert("Game over! You win!");
-//     }
-//     else if (computerScore === 3) {
-//       return alert ("Game over! You lose!");
-//     }
-
-//     const playerSelection = prompt("Rock Paper or Scissors?");
-//     const computerSelection = getComputerChoice();
-//     alert("Computer picked " + computerSelection);
-
-//     playRound(playerSelection, computerSelection);
-
-//   }
-// }
-
+function showResults(resultText) {
+  resultContainer.textContent = resultText;
+  playerScoreContainer.textContent = 'Player Score: ' + playerScore;
+  computerScoreContainer.textContent = 'ComputerScore: ' + computerScore;
+  if ( playerScore === 3) {
+    alert("Game over! You win!");
+  }
+  else if (computerScore === 3) {
+    alert("Game over! You lose!");
+  }
+}
 let playerScore = 0;
 let computerScore = 0;
-// game();
